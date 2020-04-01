@@ -175,7 +175,7 @@ export class GmapsComponent implements OnInit {
   
   }
 
-  protected mapLoad(map) {
+  mapLoad(map) {
     this.renderGeolocationControl(map);
   }
 

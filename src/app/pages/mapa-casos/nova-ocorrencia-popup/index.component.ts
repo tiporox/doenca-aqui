@@ -12,7 +12,7 @@ import { MapsAPILoader } from '@agm/core';
 export class NovaOcorrenciaComponent {
 
   constructor(
-    protected ref: NbDialogRef<NovaOcorrenciaComponent>,
+    public ref: NbDialogRef<NovaOcorrenciaComponent>,
     private googleMapsService: GoogleMapsService,
     private session: SessionService
     
