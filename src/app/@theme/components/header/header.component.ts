@@ -5,6 +5,10 @@ import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { AuthService } from "angularx-social-login";
+import { SocialUser } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { SessionService } from '../../../@core/utils/session.service';
 
 @Component({
   selector: 'ngx-header',
@@ -14,6 +18,7 @@ import { Subject } from 'rxjs';
 export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
+  private loggedIn: boolean;
   userPictureOnly: boolean = false;
   user: any;
 
@@ -36,24 +41,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
     },
   ];
 
-  currentTheme = 'default';
+  currentTheme = 'corporate';
 
   userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
+              private authService: AuthService,
               private userService: UserData,
+              private session: SessionService,
               private layoutService: LayoutService,
               private breakpointService: NbMediaBreakpointsService) {
   }
 
   ngOnInit() {
     this.currentTheme = this.themeService.currentTheme;
-
-    this.userService.getUsers()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((users: any) => this.user = users.nick);
 
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()
@@ -69,6 +72,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe(themeName => this.currentTheme = themeName);
+
+      this.authService.authState.subscribe((user) => {
+        this.session.put("user", user);
+        this.user = this.session.get("user");
+        console.log(this.user);
+        if(user != null){
+          let menu  = this.session.get("menu");
+          menu.push({
+            title: 'Sair',
+            icon: 'log-out',
+            link: '/pages/sair'
+          });
+        }
+
+      });
   }
 
   ngOnDestroy() {
@@ -90,5 +108,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateHome() {
     this.menuService.navigateHome();
     return false;
+  }
+
+  ignInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  } 
+
+  
+
+  login() {
+    this.signInWithFB();
   }
 }

@@ -52,6 +52,9 @@ import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
+import { SessionService } from './utils/session.service';
+import { HttpClientModule } from '@angular/common/http';
+import { GoogleMapsService } from './utils/google.maps.service';
 
 const socialLinks = [
   {
@@ -143,6 +146,9 @@ export const NB_CORE_PROVIDERS = [
   PlayerService,
   SeoService,
   StateService,
+  SessionService,
+  GoogleMapsService,
+  HttpClientModule 
 ];
 
 @NgModule({

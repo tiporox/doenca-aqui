@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { MENU_ITEMS } from './pages-menu';
+import { SessionService } from '../@core/utils/session.service';
 
 @Component({
   selector: 'ngx-pages',
@@ -14,5 +15,12 @@ import { MENU_ITEMS } from './pages-menu';
 })
 export class PagesComponent {
 
-  menu = MENU_ITEMS;
+  menu;
+
+  constructor(
+    private session: SessionService,
+  ) {
+    this.session.put("menu", MENU_ITEMS);
+    this.menu = this.session.get("menu");
+  }
 }

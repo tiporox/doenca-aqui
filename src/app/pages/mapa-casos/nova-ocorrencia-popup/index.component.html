@@ -1,0 +1,31 @@
+<nb-card>
+  <nb-card-header>Relatar uma ocorrência</nb-card-header>
+  <nb-card-body>
+
+  
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="label">Endereço</label>
+        <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control search-location" #search>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="label">Endereço</label>
+        <input type="email" nbInput fullWidth id="exampleInputEmail1" placeholder="Ex: Avenida paulista 0000">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="label">Doença</label><br/>
+        <nb-select selected="COVID-19" fullWidth>
+          <nb-option value="COVID-19">Coronavírus (COVID-19)</nb-option>
+        </nb-select>
+      </div>
+      <div class="form-group">
+        <nb-checkbox>Check me out</nb-checkbox>
+      </div>
+    </form>
+
+  </nb-card-body>
+  <nb-card-footer>
+    <button outline nbButton class="cancel" status="danger" (click)="cancel()">Cancelar</button>
+    <button nbButton class="bt-acao" (click)="submit(name.value)">Cadastrar</button>
+  </nb-card-footer>
+</nb-card>

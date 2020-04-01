@@ -68,3 +68,50 @@
     }
   }
 }
+.label-btn-login2 {
+  display: none;
+}
+
+@media  (max-width: 580px) {
+  .label-btn-login {
+    display: none;
+  }
+  .label-btn-login2 {
+    display: block;
+  }
+  
+}
+
+@media  (max-width:465px) {
+  .label-btn-login {
+    display: none;
+  }
+  .label-btn-login2 {
+    display: none;
+  }
+  .fb-btn-login nb-icon {
+    margin: 0px!important;
+  }
+  .logo img {
+    display: none;
+  }
+}
+
+
+.fb-btn-login {
+  background-color: #3578E5!important;
+  border-color: #3578E5!important;
+}
+
+
+::ng-deep .nb-theme-default nb-menu .menu-item a.active,
+::ng-deep .nb-theme-default nb-menu .menu-item a:hover,
+::ng-deep .nb-theme-default nb-menu .menu-item a:hover .menu-icon,
+::ng-deep .nb-theme-default nb-menu .menu-item a.active .menu-icon {
+  color: #E61F41;
+}
+
+::ng-deep .nb-theme-default nb-sidebar.compacted nb-menu .menu-item a.active::before {
+  background-color: #E61F41;
+}
+

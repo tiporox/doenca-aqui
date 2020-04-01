@@ -2,6 +2,33 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
+    title: 'Mapa de Relatos',
+    icon: 'map-outline',
+    link: '/pages/mapa-casos'
+  },
+  
+  {
+    title: 'Ocorrências Relatadas',
+    icon: 'alert-triangle-outline',
+    link: '/pages/casos-reportados'
+  },
+  
+  {
+    title: 'Notícias e Estatísticas',
+    icon: 'pie-chart-outline',
+    link: '/pages/noticias-e-estastisticas',
+  },
+
+  {
+    title: 'Quem Somos',
+    icon: 'hash-outline',
+    link: '/pages/sobre'
+  },
+
+/*
+
+
+  {
     title: 'E-commerce',
     icon: 'shopping-cart-outline',
     link: '/pages/dashboard',
@@ -244,4 +271,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+  */
 ];

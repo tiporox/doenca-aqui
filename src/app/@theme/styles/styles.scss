@@ -31,3 +31,23 @@
 
   @include nb-overrides();
 };
+
+.nb-theme-default nb-menu .menu-icon {
+  margin: 0px!important;
+}
+
+.nb-theme-default nb-menu .menu-item a .menu-title  {
+  margin-left: 15px!important;
+}
+
+.nb-theme-default .pace .pace-progress {
+  background-color: #E61F41!important;
+}
+.nb-theme-default .pace .pace-progress-inner {
+  box-shadow: 0 0 10px #E61F41, 0 0 5px #E61F41;
+}
+
+.bt-acao {
+  background-color: #E61F41!important;
+  border-color: #E61F41!important;
+}

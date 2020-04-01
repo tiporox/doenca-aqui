@@ -1,0 +1,84 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+
+  nb-card-body {
+    padding: 0;
+  }
+
+ 
+  
+}
+
+.label-card {
+  position: relative;
+  top: 4px;
+}
+
+@media  (max-width:465px) {
+  .hiden-465 {
+    display: none;
+  }
+}
+
+
+::ng-deep agm-map {
+  width: 100%;
+  height: nb-theme(card-height-large);
+}
+
+::ng-deep ngx-maps {
+  height: 100%;
+}
+::ng-deep ngx-gmaps {
+  height: 100%;
+}
+
+::ng-deep agm-map {
+  height: 100%!important;
+}
+
+::ng-deep nb-layout-column {
+  padding: 15px!important;
+}
+
+
+.legenda {
+  position: relative;
+  top: -135px;
+  left: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  font-size: 14px;
+  width: 317px;
+
+}
+
+.legenda img {
+  margin-right: 10px;
+}
+
+.mobile-1 {
+  display: none;
+}
+.web {
+  display: initial;
+}
+
+@media  (max-width: 580px) {
+ 
+}
+
+@media  (max-width:667px) {
+  
+  .legenda {
+    width: 245px;
+  }
+
+  .mobile-1 {
+    display: initial;
+  }
+  .web {
+    display: none;
+  }
+}
